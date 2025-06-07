@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hackathon 2025 – CEP Perumon</title>
 
-  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <style>
@@ -39,7 +38,7 @@
 </head>
 <body>
 
-  
+  <!-- Navbar -->
   <nav class="navbar navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="#">Hackathon 2025</a>
@@ -50,6 +49,7 @@
     </div>
   </nav>
 
+  <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="container">
       <h1>Hackathon 2025</h1>
@@ -59,32 +59,32 @@
     </div>
   </section>
 
-  
+  <!-- Image and Theme Text -->
   <div class="container text-center my-4">
-    <img src="images/images%20(2).jpg" alt="Sustainable Development" >
+    <img src="images/images%20(2).jpg" class="img-fluid rounded sustainable-img" alt="Sustainable Development" />
     <p><strong>Sustainable Development: Powering a Greener Future</strong></p>
   </div>
 
-  
+  <!-- Registration Form -->
   <section class="py-5 bg-light" id="register">
     <div class="container">
       <h2 class="text-center mb-4">Register Now</h2>
       <form class="row g-3 mx-auto" style="max-width: 600px;">
         <div class="col-md-6">
           <label for="name" class="form-label">Full Name</label>
-          <input type="text" class="form-control" id="name" required>
+          <input type="text" class="form-control" id="name" name="name" required>
         </div>
         <div class="col-md-6">
           <label for="email" class="form-label">Email ID</label>
-          <input type="email" class="form-control" id="email" required>
+          <input type="email" class="form-control" id="email" name="email" required>
         </div>
         <div class="col-12">
           <label for="college" class="form-label">College Name</label>
-          <input type="text" class="form-control" id="college" required>
+          <input type="text" class="form-control" id="college" name="college" required>
         </div>
         <div class="col-12">
           <label for="idea" class="form-label">Short Idea Description</label>
-          <textarea class="form-control" id="idea" rows="3"></textarea>
+          <textarea class="form-control" id="idea" name="idea" rows="3" required></textarea>
         </div>
         <div class="col-12 text-center">
           <button type="submit" class="btn btn-primary px-5">Submit</button>
@@ -93,12 +93,13 @@
     </div>
   </section>
 
-  
+  <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2025 College of Engineering Perumon</p>
   </footer>
 
-  
+  <!-- Countdown Script -->
+  <script>
     function updateCountdown() {
       const eventDate = new Date("June 17, 2025 09:00:00").getTime();
       const now = new Date().getTime();
@@ -115,11 +116,12 @@
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       document.getElementById("countdown").innerText =
-        ⏳ ${days}d ${hours}h ${minutes}m ${seconds}s left;
+        `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s left`;
     }
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
   </script>
+
 </body>
 </html>
