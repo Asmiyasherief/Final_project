@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hackathon 2025 – CEP Perumon</title>
+  <title>Hackathon 2025 – COE Perumon</title>
 
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <style>
@@ -34,24 +35,6 @@
       display: block;
       margin: 20px auto;
     }
-    .scroll-top {
-      display: none;
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 99;
-      font-size: 18px;
-      border: none;
-      outline: none;
-      background-color: #198754;
-      color: white;
-      cursor: pointer;
-      padding: 10px 15px;
-      border-radius: 50%;
-    }
-    .scroll-top:hover {
-      background-color: #145c39;
-    }
   </style>
 </head>
 <body>
@@ -77,53 +60,32 @@
     </div>
   </section>
 
-  <!-- Image and Theme Text -->
+  <!-- Sustainable Image Section -->
   <div class="container text-center my-4">
-    <img src="banner.jpg" class="img-fluid rounded sustainable-img" alt="Sustainable Development">
+    <img src="sustainable.png" alt="Sustainable Development" class="sustainable-img rounded">
     <p><strong>Sustainable Development: Powering a Greener Future</strong></p>
   </div>
 
-  <!-- Features Section -->
-  <section class="py-5 bg-white">
-    <div class="container text-center">
-      <h2 class="mb-4">Why Join the Hackathon?</h2>
-      <div class="row">
-        <div class="col-md-4">
-          <h5>💡 Innovative Ideas</h5>
-          <p>Bring your ideas to life and showcase your creativity.</p>
-        </div>
-        <div class="col-md-4">
-          <h5>🤝 Networking</h5>
-          <p>Connect with tech enthusiasts, mentors, and industry leaders.</p>
-        </div>
-        <div class="col-md-4">
-          <h5>🏆 Exciting Prizes</h5>
-          <p>Win awards, certificates, and opportunities for future growth.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Registration Form -->
+  <!-- Registration Section -->
   <section class="py-5 bg-light" id="register">
     <div class="container">
       <h2 class="text-center mb-4">Register Now</h2>
-      <form class="row g-3 mx-auto" style="max-width: 600px;" onsubmit="return handleSubmit(event)">
+      <form id="registerForm" class="row g-3 mx-auto" style="max-width: 600px;">
         <div class="col-md-6">
           <label for="name" class="form-label">Full Name</label>
-          <input type="text" class="form-control" id="name" name="name" required>
+          <input type="text" class="form-control" id="name" required>
         </div>
         <div class="col-md-6">
           <label for="email" class="form-label">Email ID</label>
-          <input type="email" class="form-control" id="email" name="email" required>
+          <input type="email" class="form-control" id="email" required>
         </div>
         <div class="col-12">
           <label for="college" class="form-label">College Name</label>
-          <input type="text" class="form-control" id="college" name="college" required>
+          <input type="text" class="form-control" id="college" required>
         </div>
         <div class="col-12">
           <label for="idea" class="form-label">Short Idea Description</label>
-          <textarea class="form-control" id="idea" name="idea" rows="3" required></textarea>
+          <textarea class="form-control" id="idea" rows="3"></textarea>
         </div>
         <div class="col-12 text-center">
           <button type="submit" class="btn btn-primary px-5">Submit</button>
@@ -132,17 +94,13 @@
     </div>
   </section>
 
-  <!-- Scroll to Top Button -->
-  <button onclick="scrollToTop()" class="scroll-top" id="scrollTopBtn" title="Go to top">↑</button>
-
   <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2025 College of Engineering Perumon</p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Countdown JS -->
   <script>
-    // Countdown Timer
     function updateCountdown() {
       const eventDate = new Date("June 17, 2025 09:00:00").getTime();
       const now = new Date().getTime();
@@ -164,27 +122,25 @@
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
-
-    // Scroll to Top
-    const scrollBtn = document.getElementById("scrollTopBtn");
-    window.onscroll = function() {
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        scrollBtn.style.display = "block";
-      } else {
-        scrollBtn.style.display = "none";
-      }
-    };
-
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Submit Alert
-    function handleSubmit(event) {
-      event.preventDefault();
-      alert("🎉 Your registration has been submitted!");
-      return false;
-    }
   </script>
+
+  <!-- Form Success JS -->
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Stop page reload
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const college = document.getElementById("college").value.trim();
+
+      if (!name || !email || !college) {
+        alert("❗ Please fill in all required fields.");
+      } else {
+        alert("✅ Your data saved successfully!");
+        this.reset(); // Clear form fields
+      }
+    });
+  </script>
+
 </body>
-            </html>
+  </html>
